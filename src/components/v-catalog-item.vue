@@ -7,7 +7,7 @@
     <p class="v-catalog-item__name">{{ product_data.name }}</p>
     <p class="v-catalog-item__price"> {{ product_data.price }}</p>
     <p class="v-catalog-item_price"> {{ product_data.about }}</p>
-    <button class="v-catalog-item_add_to_cart_btn" @click="sendDataToPerant">Add to cart</button>
+    <button class="v-catalog-item_add_to_cart_btn" @click="addToCart">Add to cart</button>
 </div>
 </template>
 
@@ -30,8 +30,8 @@
       },
       
       methods: {
-        sendDataToPerant() {
-            this.$emit("hello", this.product_data.article);
+        addToCart() {
+            this.$emit("addToCart", this.product_data);
         },
       },
 
@@ -45,7 +45,7 @@
          flex-wrap: wrap;
          align-items: center;
          flex-direction: column;
-         box-shadow: -1px 1px 8px 0px rgba(39, 76, 104, 0.2);
+         box-shadow: 1px 1px 8px 0px rgba(39, 76, 104, 0.2);
          border-radius: 15px;
          padding: 24px;
          background: pink;

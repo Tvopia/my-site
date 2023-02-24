@@ -7,7 +7,7 @@
     <p class="v-catalog-item__name">{{ product_data.name }}</p>
     <p class="v-catalog-item__price"> {{ product_data.price }}</p>
     <p class="v-catalog-item_price"> {{ product_data.about }}</p>
-    <button class="v-catalog-item_add_to_cart_btn" @click="addToCart">Add to cart</button>
+    <button class="v-catalog-item_add_to_cart_btn btn" @click="addToCart">Add to cart</button>
 </div>
 </template>
 
@@ -55,9 +55,8 @@
   .v-catalog-item_add_to_cart_btn {
     border: none;
     border-radius: 8px;
-    padding: 6px 12px;
+    padding: 2px 12px;
     color: white;
-    background: rgba(255, 0, 255, 0.37);
   }
   
   .v-catalog-item_add_to_cart_btn:hover {

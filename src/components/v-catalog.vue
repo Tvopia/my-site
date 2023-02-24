@@ -1,6 +1,13 @@
 <template>
   <div class="v-catalog"></div>
-  <h1 class="catalog">Catalog!</h1>
+  <router-link :to="{name: 'cart', params:{cart_data: CART}}">
+    <div class="v-catalog__link_to_cart">
+      <i class="medium material-icons">shopping_cart</i>
+      {{ CART.length }}</div>
+  </router-link>
+  
+
+
   <div class="productsCont">
     <vCatalogItem 
   v-for="product in PRODUCTS" 
@@ -26,7 +33,7 @@ export default {
         return {};
       },
       computed: {
-        ...mapGetters(['PRODUCTS']), 
+        ...mapGetters(['PRODUCTS',"CART"]), 
       },
        methods: {
         ...mapActions(["GET_PRODUCTS_FRON_API", "ADD_TO_CART"]),
@@ -57,9 +64,9 @@ export default {
     grid-column-gap: 32px;
     grid-row-gap: 32px;
 }
-.catalog {
-  position: relative;
-  left: 468px; 
-}
 
+.v-catalog__link_to_cart {
+  position: absolute;
+  padding: 16px; 
+}
 </style>

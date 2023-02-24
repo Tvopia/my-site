@@ -1,8 +1,21 @@
 <template>
     <div class="v-cart"> 
-        <h2>Cart!</h2>
+      <router-link :to="{name: 'catalog'}">
+    <div class="v-catalog__link_to_cart">
+      <i class="medium material-icons">shopping_cart</i>
+      {{ CART.length }}
+    </div>
+    <div class="back_to_catalog_btn">
+      <button class="btn">Back to Catalog
+        <i class="medium material-icons">reply</i>
+      </button>
+    </div>
+    
+  </router-link>
+  <p v-if="!CART.length">You haven't got any products...</p>
+  
         <vCartItem 
-        v-for="(item, index) in cart_data"
+        v-for="(item, index) in CART"
         :key="item.article"
         :cart_item_data="item"
         @deleteFromCart="deleteFromCart(index)"
@@ -13,7 +26,7 @@
   
   <script>
   import vCartItem from './v-cart-item.vue';
-  import { mapActions } from 'vuex';
+  import { mapActions, mapGetters} from 'vuex';
   export default {
       name: "v-cart",
       components: {
@@ -30,10 +43,12 @@
       data() {
           return {};
       },
+      computed:{
+        ...mapGetters(["CART"]),
+      },
       methods:{
         ...mapActions(["DELETE_FROM_CART"]),
         deleteFromCart(index) {
-            console.log(index)
            this.DELETE_FROM_CART(index);
         },
       },
@@ -48,12 +63,16 @@
     color: rgb(24, 21, 22);
     font-size: 20px;
     margin-bottom: 150px;
-   position: absolute;
-   top: 900px;
+    position: absolute;
   }
   p{
     text-align: center;
     font-size: 26px;
+  }
+  .back_to_catalog_btn{
+    padding: 32px;
+    position: relative;
+    left: 56px;
   }
   
   </style>

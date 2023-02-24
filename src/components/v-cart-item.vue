@@ -16,7 +16,11 @@
             {{ cart_item_data.quantity }}
         </span>
     </div>
-    <button @click="deleteFromCart" class="dilete">Delete</button>
+    <div class="delete_bth">
+        <button @click="deleteFromCart" class="btn">
+        <i class="medium material-icons">delete</i>
+    </button>
+    </div>
         </div>
     </template>
     
@@ -65,11 +69,11 @@
             min-width: 10%;
           }
          }
-         .dilete{
-            border: none; 
-            border-radius: 8px;
-            padding: 6px 12px;
-            color: white;
-            background: rgba(255, 0, 255, 0.37);
+         .btn {
+            background: rgb(231, 77, 193);
          }
+        .delete_bth{
+            position: relative;
+            left: 12px;
+        }
     </style>

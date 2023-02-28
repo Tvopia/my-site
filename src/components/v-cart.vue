@@ -86,7 +86,6 @@ export default {
 .itemsContainer {
   display: flex;
   flex-direction: column;
-  gap: 32px;
   box-sizing: border-box;
 }
 </style>

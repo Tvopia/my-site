@@ -60,10 +60,12 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 8px 0 rgb(148, 57, 57);
+    box-shadow: 0 0 8px 0 rgb(148, 57, 57) inset;
+    border-radius: 8px;
     box-sizing: border-box;
     padding-left: 24px;
     padding-right: 24px;
+    margin-bottom: 24px;
 
     &_image {
         min-width: 10%;
